@@ -2,8 +2,15 @@ package org.example;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import org.example.model.Model;
 
 public class MainController {
+
+    private Model model;
+
+    public void setModel(Model model) {
+        this.model = model;
+    }
 
     @FXML
     private Label creditsLabel;
@@ -19,7 +26,9 @@ public class MainController {
 
     @FXML
     void handleLoadButtonClicked() {
-
+        nameLabel.setText(model.getStudent().getName());
+        creditsLabel.setText("" + model.getStudent().getCredits());
+        dateOfBirthLabel.setText(model.getStudent().getDateOfBirth().toString());
     }
 
     @FXML
